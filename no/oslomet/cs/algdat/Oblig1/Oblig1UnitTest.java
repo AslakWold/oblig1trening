@@ -10,12 +10,18 @@ class Oblig1UnitTest {
 
     @org.junit.jupiter.api.Test
     void maks() {
-        assertEquals(true, false, "Implementer maks og denne testen");
+        int[] a = {12,3,20,4,5};
+        Oblig1.maks(a);
+        assertEquals(20, a[a.length - 1], "Maks?");
+        System.out.println(a[a.length - 1]);
+        //assertEquals(true, false, "Implementer maks og denne testen");
     }
 
     @org.junit.jupiter.api.Test
     void ombyttinger() {
-        assertEquals(true, false, "Implementer ombyttinger og denne testen");
+        int[] a = {12,3,20,4,5};
+        assertEquals(3, Oblig1.ombyttinger(a), "Hvor mange ombyttinger?");
+        //assertEquals(true, false, "Implementer ombyttinger og denne testen");
     }
 
     @org.junit.jupiter.api.Test
