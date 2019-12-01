@@ -34,6 +34,7 @@ class Oblig1UnitTest {
         assertEquals(true, false, "Implementer antallUlikeUsortert og denne testen");
     }
 
+
     @org.junit.jupiter.api.Test
     void delsortering() {
         assertEquals(true, false, "Implementer delsortering og denne testen");

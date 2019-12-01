@@ -104,9 +104,67 @@ public class Oblig1 {
         return antallUlike;
     }
 
+    private static void bytt(int[] a, int fra, int til) {
+        int temp = a[fra];
+        a[fra] = a[til];
+        a[til] = temp;
+    }
+
+    private static int parterTall(int[] a, int v, int h) {
+        int skilleverdi = a[h];
+
+        int indeks = (v - 1);
+
+        for(int i = v; i < h; i++) {
+            if(a[i] <= skilleverdi) {
+                indeks++;
+
+                int temp = a[indeks];
+                a[indeks] = a[i];
+                a[i] = temp;
+            }
+        }
+        int temp = a[indeks + 1];
+        a[indeks + 1] = a[h];
+        a[h] = temp;
+
+        return indeks + 1;
+    }
+
+    public static void quickSort(int[] a, int v, int h) {
+        if(v >= h) {
+            return;
+        }
+
+        int partisjons_indeks = parterTall(a,v,h);
+
+        quickSort(a,v,partisjons_indeks - 1);
+        quickSort(a, partisjons_indeks + 1, h);
+    }
+
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
-        throw new NotImplementedException();
+
+        //Sorterer først
+        quickSort(a,0, a.length-1);
+
+        int indeks = 0;
+
+        //alle partall går til høyre
+        for(int i = 0; i < a.length; i++) {
+            if(a[i] % 2 != 0) {
+                int temp = a[indeks];
+                a[indeks] = a[i];
+                a[i] = temp;
+
+                indeks++;
+            }
+        }
+
+        //sorterer partallene i listen
+        quickSort(a,indeks, a.length - 1);
+
+
     }
 
     ///// Oppgave 5 //////////////////////////////////////
